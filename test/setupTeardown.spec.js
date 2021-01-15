@@ -20,7 +20,13 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 */
 
 describe('quem sobreviveu?', () => {
-  // Adicione seu código aqui
+  beforeEach(() => {
+    return adventure.randomAttack();
+  });
+
+  afterEach(() => {
+    console.log(`restaram apenas...${adventure.specialists.map((item) => item.nome)}`);
+  });
 
   test('depois da primeira aventura', () => {
     expect(adventure.specialists.length).toBe(5);
@@ -38,3 +44,4 @@ describe('quem sobreviveu?', () => {
     expect(adventure.specialists.length).toBe(1);
   });
 });
+
