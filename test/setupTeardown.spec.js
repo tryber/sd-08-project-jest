@@ -21,6 +21,19 @@ ATENÇÃO!!! Edite apenas este arquivo. Não altere os arquivos da pasta 'src'.
 
 describe('quem sobreviveu?', () => {
   // Adicione seu código aqui
+  const mockRandomAttack = jest.spyOn(adventure, "randomAttack");
+
+  beforeEach(() => {
+    mockRandomAttack();
+  });
+
+  afterEach(() => {
+    console.log(adventure.specialists);
+  });
+
+  afterAll(() => {
+    console.log(adventure.specialists[0].nome);
+  });
 
   test('depois da primeira aventura', () => {
     expect(adventure.specialists.length).toBe(5);
